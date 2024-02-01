@@ -17,7 +17,7 @@ final class WeekViewController: UIViewController {
     private let calendar = Calendar.current
     private let dateFormatter = DateFormatter().then {
         $0.dateStyle = .long
-        $0.dateFormat = "MM월-dd일 오늘"
+        $0.dateFormat = "MM월 dd일"
     }
     
     private lazy var dateLabel = UILabel().then {
@@ -28,12 +28,12 @@ final class WeekViewController: UIViewController {
     
     private lazy var previousButton = UIButton().then {
         $0.setImage(UIImage(systemName: "arrowtriangle.backward")?.withTintColor(.black, renderingMode: .alwaysOriginal), for: .normal)
-        $0.addTarget(self, action: #selector(goToPreviousDay), for: .touchUpInside)
+        $0.addTarget(self, action: #selector(goToPreviousWeek), for: .touchUpInside)
     }
     
     private lazy var nextButton = UIButton().then {
         $0.setImage(UIImage(systemName: "arrowtriangle.right")?.withTintColor(.black, renderingMode: .alwaysOriginal), for: .normal)
-        $0.addTarget(self, action: #selector(goToNextDay), for: .touchUpInside)
+        $0.addTarget(self, action: #selector(goToNextWeek), for: .touchUpInside)
     }
     
     private lazy var collectionView: UICollectionView = UICollectionView(frame: .zero, collectionViewLayout: self.getLayout()).then {
@@ -58,6 +58,8 @@ final class WeekViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
+        selectedDate = Date()
+        updateSelectedDateFormat()
         setupDateLabel()
         setupArrowButtons()
         setupCollectionView()
@@ -144,8 +146,8 @@ final class WeekViewController: UIViewController {
         }
     }
     
-    @objc private func goToNextDay() {
-        guard let nextDay = calendar.date(byAdding: .day, value: 1, to: selectedDate) else {
+    @objc private func goToNextWeek() {
+        guard let nextDay = calendar.date(byAdding: .day, value: 7, to: selectedDate) else {
             return
         }
         let currentDate = Date()
@@ -159,7 +161,7 @@ final class WeekViewController: UIViewController {
         }
     }
     
-    @objc private func goToPreviousDay() {
+    @objc private func goToPreviousWeek() {
         if let previousDay = calendar.date(byAdding: .day, value: -7, to: selectedDate) {
             selectedDate = previousDay
             updateSelectedDateFormat()
