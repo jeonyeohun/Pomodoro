@@ -70,17 +70,17 @@ final class DashBoardViewController: UIViewController {
         tabBarControl.addTarget(self, action: #selector(segmentChanged), for: .valueChanged)
     }
 
-    private func displayViewController(_: UIViewController) {
-        for (_, viewController) in segmentViewControllers {
-            if viewController == viewController {
+    private func displayViewController(_ viewController: UIViewController) {
+        for (_, segmentViewController) in segmentViewControllers {
+            if segmentViewController == viewController {
                 addChild(viewController)
-                containerView.addSubview(viewController.view)
-                viewController.view.frame = containerView.bounds
-                viewController.didMove(toParent: self)
+                containerView.addSubview(segmentViewController.view)
+                segmentViewController.view.frame = containerView.bounds
+                segmentViewController.didMove(toParent: self)
             } else {
-                viewController.willMove(toParent: nil)
-                viewController.view.removeFromSuperview()
-                viewController.removeFromParent()
+                segmentViewController.willMove(toParent: nil)
+                segmentViewController.view.removeFromSuperview()
+                segmentViewController.removeFromParent()
             }
         }
     }
