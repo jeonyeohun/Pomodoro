@@ -12,7 +12,7 @@
 		213F30552B6BE73900FAF5F2 /* DashboardStatusCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213F30542B6BE73900FAF5F2 /* DashboardStatusCell.swift */; };
 		CE4F2B032B6DE0D7000E5420 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = CE4F2B022B6DE0D7000E5420 /* .swiftlint.yml */; };
 		CEB721942B6DECC7001AB9C1 /* PomodoroTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB721932B6DECC7001AB9C1 /* PomodoroTests.swift */; };
-		CEB7219E2B711465001AB9C1 /* DashboardBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB7219D2B711465001AB9C1 /* DashboardBaseViewController.swift */; };
+		CEB7219E2B711465001AB9C1 /* DashboardContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB7219D2B711465001AB9C1 /* DashboardContentViewController.swift */; };
 		CEDCA0FD2B67D015005C18EA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEDCA0D32B67D015005C18EA /* LaunchScreen.storyboard */; };
 		CEDCA0FE2B67D015005C18EA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEDCA0D42B67D015005C18EA /* Assets.xcassets */; };
 		CEDCA1002B67D015005C18EA /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = CEDCA0D72B67D015005C18EA /* README.md */; };
@@ -32,9 +32,6 @@
 		CEDCA10E2B67D015005C18EA /* UIColor+HexCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDCA0ED2B67D015005C18EA /* UIColor+HexCode.swift */; };
 		CEDCA10F2B67D015005C18EA /* MonthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDCA0F02B67D015005C18EA /* MonthViewController.swift */; };
 		CEDCA1102B67D015005C18EA /* DashBoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDCA0F12B67D015005C18EA /* DashBoardViewController.swift */; };
-		CEDCA1112B67D015005C18EA /* WeekViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDCA0F22B67D015005C18EA /* WeekViewController.swift */; };
-		CEDCA1122B67D015005C18EA /* YearViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDCA0F32B67D015005C18EA /* YearViewController.swift */; };
-		CEDCA1132B67D015005C18EA /* DayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDCA0F42B67D015005C18EA /* DayViewController.swift */; };
 		CEDCA1142B67D015005C18EA /* MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDCA0F62B67D015005C18EA /* MockData.swift */; };
 		CEDCA1162B67D015005C18EA /* Pomodoro.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDCA0F92B67D015005C18EA /* Pomodoro.swift */; };
 		CEDCA1172B67D015005C18EA /* TagList.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDCA0FA2B67D015005C18EA /* TagList.swift */; };
@@ -65,7 +62,7 @@
 		CE4F2B022B6DE0D7000E5420 /* .swiftlint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		CEB721912B6DECC7001AB9C1 /* PomodoroTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PomodoroTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEB721932B6DECC7001AB9C1 /* PomodoroTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PomodoroTests.swift; sourceTree = "<group>"; };
-		CEB7219D2B711465001AB9C1 /* DashboardBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardBaseViewController.swift; sourceTree = "<group>"; };
+		CEB7219D2B711465001AB9C1 /* DashboardContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardContentViewController.swift; sourceTree = "<group>"; };
 		CEDCA0BB2B67CFD8005C18EA /* Pomodoro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pomodoro.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEDCA0D32B67D015005C18EA /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CEDCA0D42B67D015005C18EA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -86,9 +83,6 @@
 		CEDCA0ED2B67D015005C18EA /* UIColor+HexCode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+HexCode.swift"; sourceTree = "<group>"; };
 		CEDCA0F02B67D015005C18EA /* MonthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonthViewController.swift; sourceTree = "<group>"; };
 		CEDCA0F12B67D015005C18EA /* DashBoardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashBoardViewController.swift; sourceTree = "<group>"; };
-		CEDCA0F22B67D015005C18EA /* WeekViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeekViewController.swift; sourceTree = "<group>"; };
-		CEDCA0F32B67D015005C18EA /* YearViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YearViewController.swift; sourceTree = "<group>"; };
-		CEDCA0F42B67D015005C18EA /* DayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DayViewController.swift; sourceTree = "<group>"; };
 		CEDCA0F62B67D015005C18EA /* MockData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockData.swift; sourceTree = "<group>"; };
 		CEDCA0F92B67D015005C18EA /* Pomodoro.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pomodoro.swift; sourceTree = "<group>"; };
 		CEDCA0FA2B67D015005C18EA /* TagList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagList.swift; sourceTree = "<group>"; };
@@ -262,10 +256,7 @@
 			children = (
 				CEDCA0F02B67D015005C18EA /* MonthViewController.swift */,
 				CEDCA0F12B67D015005C18EA /* DashBoardViewController.swift */,
-				CEDCA0F22B67D015005C18EA /* WeekViewController.swift */,
-				CEDCA0F32B67D015005C18EA /* YearViewController.swift */,
-				CEDCA0F42B67D015005C18EA /* DayViewController.swift */,
-				CEB7219D2B711465001AB9C1 /* DashboardBaseViewController.swift */,
+				CEB7219D2B711465001AB9C1 /* DashboardContentViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -466,16 +457,13 @@
 				CEDCA10E2B67D015005C18EA /* UIColor+HexCode.swift in Sources */,
 				213F30532B6BE72300FAF5F2 /* DashboardPieChartCell.swift in Sources */,
 				CEDCA1012B67D015005C18EA /* SettingViewController.swift in Sources */,
-				CEDCA1112B67D015005C18EA /* WeekViewController.swift in Sources */,
 				CEDCA1032B67D015005C18EA /* LongBreakModalViewController.swift in Sources */,
-				CEDCA1122B67D015005C18EA /* YearViewController.swift in Sources */,
 				CEDCA1022B67D015005C18EA /* ShortBreakModalViewController.swift in Sources */,
 				CEDCA1162B67D015005C18EA /* Pomodoro.swift in Sources */,
 				CEDCA1082B67D015005C18EA /* MainViewController.swift in Sources */,
-				CEDCA1132B67D015005C18EA /* DayViewController.swift in Sources */,
 				CEDCA10F2B67D015005C18EA /* MonthViewController.swift in Sources */,
 				CEDCA10D2B67D015005C18EA /* MainPageViewController.swift in Sources */,
-				CEB7219E2B711465001AB9C1 /* DashboardBaseViewController.swift in Sources */,
+				CEB7219E2B711465001AB9C1 /* DashboardContentViewController.swift in Sources */,
 				CEDCA10A2B67D015005C18EA /* TagModalViewController.swift in Sources */,
 				CEDCA1092B67D015005C18EA /* TagCollectionView.swift in Sources */,
 				CEDCA10B2B67D015005C18EA /* TagCollectionViewCell.swift in Sources */,

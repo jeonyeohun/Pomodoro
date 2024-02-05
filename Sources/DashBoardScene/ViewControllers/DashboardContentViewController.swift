@@ -1,5 +1,5 @@
 //
-//  DashboardBaseViewController.swift
+//  DashboardContentViewController.swift
 //  Pomodoro
 //
 //  Created by USER on 2024/02/05.
@@ -12,12 +12,20 @@ protocol DashboardTabDelegate: AnyObject {
     func dateArrowButtonDidTap(data: Date)
 }
 
-class DashboardBaseViewController: UIViewController {
+final class DashboardContentViewController: UIViewController {
+    enum DashboardDateType: Int, CaseIterable {
+        case day
+        case week
+        case month
+        case year
+    }
+
     enum Section: Int, CaseIterable {
         case status
         case chart
     }
 
+    var dashboardDateType: DashboardDateType = .day
     weak var delegate: DashboardTabDelegate?
     let dashboardStatusCell = DashboardStatusCell()
     let dashboardPieChartCell = DashboardPieChartCell()
@@ -37,7 +45,16 @@ class DashboardBaseViewController: UIViewController {
     }
 
     var dateRange: Int {
-        0
+        switch dashboardDateType {
+        case .day:
+            1
+        case .week:
+            7
+        case .month:
+            30
+        case .year:
+            365
+        }
     }
 
     lazy var dateLabel = UILabel().then {
@@ -94,8 +111,6 @@ class DashboardBaseViewController: UIViewController {
         dashboardPieChartCell.dateArrowButtonDidTap(data: selectedDate)
         collectionView.reloadData()
     }
-
-    func updateSelectedDateFormat() {}
 
     lazy var collectionView: UICollectionView = .init(
         frame: .zero,
@@ -180,11 +195,41 @@ class DashboardBaseViewController: UIViewController {
         }
         collectionView.dataSource = self
     }
+
+    func updateSelectedDateFormat() {
+        if dashboardDateType == .day {
+            let currentDate = Date()
+            let components = calendar.dateComponents([.year, .month, .day], from: currentDate)
+            let targetComponents = calendar.dateComponents([.year, .month, .day], from: selectedDate)
+
+            if components.year == targetComponents.year,
+               components.month == targetComponents.month,
+               components.day == targetComponents.day {
+                dateFormatter.dateFormat = "MM월 dd일, 오늘"
+            } else {
+                dateFormatter.dateFormat = "MM월 dd일"
+            }
+            dateLabel.text = dateFormatter.string(from: selectedDate)
+        } else {
+            let calendar = Calendar.current
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "MM월 dd일"
+
+            if let weekInterval = calendar.dateInterval(of: .weekOfMonth, for: selectedDate) {
+                let startDate = weekInterval.start
+                let endDate = calendar.date(byAdding: .day, value: -1, to: weekInterval.end) ?? weekInterval.end
+                let startDateString = dateFormatter.string(from: startDate)
+                let endDateString = dateFormatter.string(from: endDate)
+
+                dateLabel.text = "\(startDateString) - \(endDateString)"
+            }
+        }
+    }
 }
 
 // MARK: - UICollectionViewDataSource
 
-extension DashboardBaseViewController: UICollectionViewDataSource {
+extension DashboardContentViewController: UICollectionViewDataSource {
     func numberOfSections(in _: UICollectionView) -> Int {
         Section.allCases.count
     }
