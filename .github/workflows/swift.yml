@@ -1,24 +1,17 @@
 # This workflow will build a Swift project
 # For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-swift
 
-name: Tuist-build
-
+name: Run Test
 on:
   push:
-    branches: [ "main", "develop" ]
+    branches: [ develop ]
   pull_request:
-    branches: [ "main", "develop" ]
-
+    branches: [ develop ]
 jobs:
-  build:
-    name: Tuist-build
+  build:  
     runs-on: macos-latest
     steps:
-    - uses: actions/checkout@v3
-    - uses: tuist/tuist-action@0.13.0
-      with:
-        command: 'fetch'
-    - uses: tuist/tuist-action@0.13.0
-      with: 
-        command: 'build'
-        arguments: ''
+    - uses: actions/checkout@v3  // repository에 체크아웃해서 job이 접근 가능하게 한다는 뜻 (Github Actions에서 미리 정의한 명령)
+    - name: Build Xcode  // 실행할 작업 이름
+      run: | 
+        xcodebuild clean test -project Pomodoro/Pomodoro.xcodeproj -scheme Pomodoro -destination 'platform=iOS Simulator,name=iPhone 13 Pro,OS=14.1'
