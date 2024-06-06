@@ -69,7 +69,6 @@ final class TagModalViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        defaultTagLoad()
         setupViews()
         closeButton.addTarget(self, action: #selector(dismissModal), for: .touchUpInside)
         tagSettingCompletedButton.isEnabled = false // 첫 화면에는 설정완료 비활성화
@@ -132,25 +131,6 @@ final class TagModalViewController: UIViewController {
             $0.spacing = 10
             $0.alignment = .fill
             $0.distribution = .fillEqually
-        }
-    }
-
-    private func defaultTagLoad() {
-        guard let tagCount = try? RealmService.read(Tag.self).count, tagCount == 0 else { return }
-
-        let defaultTags = [
-            Tag(tagName: "공부", colorIndex: "one", position: 0),
-            Tag(tagName: "수영", colorIndex: "two", position: 1),
-            Tag(tagName: "독서", colorIndex: "three", position: 2),
-        ]
-
-        for tag in defaultTags {
-            do {
-                RealmService.write(tag)
-                Log.info("Added tag: \(tag.tagName)")
-            } catch {
-                Log.info("Error preloading tag \(tag.tagName): \(error)")
-            }
         }
     }
 
